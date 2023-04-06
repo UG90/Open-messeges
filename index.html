@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Example</title>
+</head>
+<body>
+  <h1>WebSocket Example</h1>
+  <p>Open the browser console to see messages.</p>
+
+  <script>
+    // Open a WebSocket connection
+    const socket = new WebSocket('ws://localhost:3000');
+
+    // Listen for connection open event
+    socket.addEventListener('open', function (event) {
+      console.log('WebSocket connection is open.');
+      // Send a message to the server
+      socket.send('Hello, server!');
+    });
+
+    // Listen for messages from the server
+    socket.addEventListener('message', function (event) {
+      console.log('Message from server:', event.data);
+    });
+  </script>
+</body>
+</html>
